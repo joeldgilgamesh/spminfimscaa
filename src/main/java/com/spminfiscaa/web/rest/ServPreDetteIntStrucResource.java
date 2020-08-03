@@ -1,13 +1,8 @@
 package com.spminfiscaa.web.rest;
 
 import com.spminfiscaa.csvmanage.CsvSPDIS;
-import com.spminfiscaa.domain.ServPreDetteIntStruc;
 import com.spminfiscaa.message.ResponseMessage;
-import com.spminfiscaa.service.ServPreDetteExtService;
-import com.spminfiscaa.service.ServPreDetteIntNoStrucService;
 import com.spminfiscaa.service.ServPreDetteIntStrucService;
-import com.spminfiscaa.service.SolEngNonDecService;
-import com.spminfiscaa.service.dto.SolEngNonDecDTO;
 import com.spminfiscaa.web.rest.errors.BadRequestAlertException;
 import com.spminfiscaa.service.dto.ServPreDetteIntStrucDTO;
 
@@ -45,7 +40,6 @@ public class ServPreDetteIntStrucResource {
     private String applicationName;
 
     private final ServPreDetteIntStrucService servPreDetteIntStrucService;
-
 
     public ServPreDetteIntStrucResource(ServPreDetteIntStrucService servPreDetteIntStrucService) {
         this.servPreDetteIntStrucService = servPreDetteIntStrucService;
@@ -101,7 +95,6 @@ public class ServPreDetteIntStrucResource {
         log.debug("REST request to get all ServPreDetteIntStrucs");
         return servPreDetteIntStrucService.findAll();
     }
-
 
     /**
      * {@code GET  /serv-pre-dette-int-strucs/:id} : get the "id" servPreDetteIntStruc.
