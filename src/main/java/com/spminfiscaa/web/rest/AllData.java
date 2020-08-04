@@ -26,6 +26,8 @@ public class AllData {
     private final ServPreDetteExtService servPreDetteExtService ;
     private final SolEngNonDecService solEngNonDecService;
     Map<String,Object > allObjectMap = new HashMap<>();
+    Map<String,Object > allObjectTotalMap = new HashMap<>();
+
     private final Logger log = LoggerFactory.getLogger(AllData.class);
 
 
@@ -51,10 +53,24 @@ public class AllData {
         log.debug("REST request to update ServPreDetteIntStruc : "+ servPreDetteIntNoStrucDTOS);
         return allObjectMap;
     }
+    public Map<String, Object> AllTotal(){
+        int data1 = solEngNonDecService.somme();
+        int data2 = servPreDetteIntNoStrucService.somme();
+        int data3 = servPreDetteExtService.somme();
+        int data4 = servPreDetteIntStrucService.somme();
+        int sum = data1 + data2 + data3 + data4 ;
+        allObjectTotalMap.put("Tout les totaux SEND, SPDIS, SPDIN, SPDE", sum);
+        return allObjectTotalMap;
+    }
     @GetMapping("/all-data")
     public Map<String,Object> getAll(){
         log.debug("REST request to update ServPreDetteIntStruc : {}", AllObject());
         return AllObject();
+    }
+    @GetMapping("/all-total")
+    public Map<String, Object> getAllTotal(){
+        log.debug("Tous les totaux : {}", AllTotal());
+        return AllTotal();
     }
 }
 

@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface ServPreDetteIntStrucRepository extends JpaRepository<ServPreDetteIntStruc, Long> {
+    @Query("SELECT sum(t.total) from ServPreDetteIntStruc t")
+    public int sommeServPreDetteIntStruc();
 }

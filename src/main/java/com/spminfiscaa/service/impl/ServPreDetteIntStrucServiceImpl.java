@@ -112,4 +112,8 @@ public class ServPreDetteIntStrucServiceImpl implements ServPreDetteIntStrucServ
         return in;
     }
 
+    @Override
+    public int somme() {
+        return servPreDetteIntStrucRepository.sommeServPreDetteIntStruc();
+    }
 }

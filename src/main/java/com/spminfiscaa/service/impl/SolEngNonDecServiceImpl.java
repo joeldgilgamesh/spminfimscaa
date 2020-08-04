@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +30,8 @@ public class SolEngNonDecServiceImpl implements SolEngNonDecService {
     private final Logger log = LoggerFactory.getLogger(SolEngNonDecServiceImpl.class);
 
     private final SolEngNonDecRepository solEngNonDecRepository;
+
+    private SolEngNonDecDTO solEngNonDecDTO;
 
     private final SolEngNonDecMapper solEngNonDecMapper;
 
@@ -112,7 +113,12 @@ public class SolEngNonDecServiceImpl implements SolEngNonDecService {
             System.out.println(solEngNonDecs.size());
             ByteArrayInputStream in = CsvSEND.writeSend(solEngNonDecs);
             return in;
-
-
     }
+
+    @Override
+    public int somme() {
+        return solEngNonDecRepository.sommeSolEngNonDec();
+    }
+
+
 }

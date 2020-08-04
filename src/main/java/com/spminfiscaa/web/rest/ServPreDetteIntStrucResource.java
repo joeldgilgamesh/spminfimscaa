@@ -151,4 +151,9 @@ public class ServPreDetteIntStrucResource {
             .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
             .body(file);
     }
+    @GetMapping("/SPDIS-total")
+    public int getTotal() {
+        log.debug("REST request to delete SolEngNonDec : {}" , servPreDetteIntStrucService.somme());
+        return  servPreDetteIntStrucService.somme();
+    }
 }

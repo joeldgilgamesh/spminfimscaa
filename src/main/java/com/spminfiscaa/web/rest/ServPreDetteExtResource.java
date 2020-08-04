@@ -22,7 +22,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -151,5 +153,16 @@ public class ServPreDetteExtResource {
             .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
             .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
             .body(file);
+    }
+    @GetMapping("/SPDE-total")
+    public int getTotal() {
+        log.debug("REST request to delete SolEngNonDec : {}" , servPreDetteExtService.somme());
+        return  servPreDetteExtService.somme();
+    }
+
+    @GetMapping("SPDE-pediod")
+    public Map<String,Object> getInterval(@RequestParam Date dateStart, @RequestParam Date dateEnd){
+        log.debug("REST request to delete SolEngNonDec : {}" , servPreDetteExtService.showTri(dateStart, dateEnd));
+        return servPreDetteExtService.showTri(dateStart, dateEnd);
     }
 }

@@ -6,6 +6,8 @@ import com.spminfiscaa.domain.ServPreDetteExt;
 import com.spminfiscaa.repository.ServPreDetteExtRepository;
 import com.spminfiscaa.service.dto.ServPreDetteExtDTO;
 import com.spminfiscaa.service.mapper.ServPreDetteExtMapper;
+import jdk.internal.jline.internal.TestAccessible;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,9 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -32,6 +33,11 @@ public class ServPreDetteExtServiceImpl implements ServPreDetteExtService {
     private final ServPreDetteExtRepository servPreDetteExtRepository;
 
     private final ServPreDetteExtMapper servPreDetteExtMapper;
+
+    private  ServPreDetteExtDTO servPreDetteExtDTO;
+
+    Map<String,Object > dateObject = new HashMap<>();
+
 
     public ServPreDetteExtServiceImpl(ServPreDetteExtRepository servPreDetteExtRepository, ServPreDetteExtMapper servPreDetteExtMapper) {
         this.servPreDetteExtRepository = servPreDetteExtRepository;
@@ -109,4 +115,16 @@ public class ServPreDetteExtServiceImpl implements ServPreDetteExtService {
         ByteArrayInputStream in = CsvSPDE.writeSend(servPreDetteExts);
         return in;
     }
+
+    @Override
+    public int somme() {
+        return servPreDetteExtRepository.sommeServPreDetteExt();
+    }
+
+    @Override
+    public Map<String,Object> showTri(Date dateStart, Date dateEnd) {
+        dateObject.put("Date debut et date fin", servPreDetteExtRepository.showDateServPreDetteExt(dateStart,dateEnd));
+        return dateObject;
+    }
+
 }

@@ -153,4 +153,10 @@ public class SolEngNonDecResource {
             .contentType(MediaType.parseMediaType("application/vnd.ms-excel"))
             .body(file);
     }
+
+    @GetMapping("/SEND-total")
+    public int getTotal() {
+        log.debug("REST request to delete SolEngNonDec : {}" , solEngNonDecService.somme());
+      return  solEngNonDecService.somme();
+    }
 }

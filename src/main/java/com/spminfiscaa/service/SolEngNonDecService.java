@@ -1,6 +1,8 @@
 package com.spminfiscaa.service;
 
+import com.spminfiscaa.domain.SolEngNonDec;
 import com.spminfiscaa.service.dto.SolEngNonDecDTO;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
@@ -46,6 +48,9 @@ public interface SolEngNonDecService {
     //Methode Excel
     void save(MultipartFile file);
     ByteArrayInputStream load();
+
+    //somme solde Engagee Non Declarer
+    public int somme();
 
 
 }

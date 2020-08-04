@@ -15,9 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -110,4 +108,10 @@ public class ServPreDetteIntNoStrucServiceImpl implements ServPreDetteIntNoStruc
         ByteArrayInputStream in = CsvSPDINS.writeSend(servPreDetteIntNoStrucs);
         return in;
     }
+
+    @Override
+    public int somme() {
+        return servPreDetteIntNoStrucRepository.sommeServPreDetteIntNoStruc();
+    }
+
 }

@@ -4,7 +4,9 @@ import com.spminfiscaa.service.dto.ServPreDetteIntNoStrucDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -42,7 +44,11 @@ public interface ServPreDetteIntNoStrucService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
     //Methode Excel
     void save(MultipartFile file);
+
     ByteArrayInputStream load();
+
+    int somme();
 }
