@@ -51,4 +51,7 @@ public interface ServPreDetteIntNoStrucService {
     ByteArrayInputStream load();
 
     int somme();
+
+    String showDate();
+
 }

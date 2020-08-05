@@ -114,4 +114,8 @@ public class ServPreDetteIntNoStrucServiceImpl implements ServPreDetteIntNoStruc
         return servPreDetteIntNoStrucRepository.sommeServPreDetteIntNoStruc();
     }
 
+    @Override
+    public String showDate() {
+        return servPreDetteIntNoStrucRepository.showServPreDetteIntNoStruc().toString();
+    }
 }

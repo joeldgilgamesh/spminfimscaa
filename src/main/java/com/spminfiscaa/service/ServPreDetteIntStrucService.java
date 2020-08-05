@@ -47,4 +47,6 @@ public interface ServPreDetteIntStrucService {
     void save(MultipartFile file);
     ByteArrayInputStream load();
     int somme();
+    String showDate();
+
 }

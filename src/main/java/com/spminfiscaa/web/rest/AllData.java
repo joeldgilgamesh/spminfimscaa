@@ -27,6 +27,8 @@ public class AllData {
     private final SolEngNonDecService solEngNonDecService;
     Map<String,Object > allObjectMap = new HashMap<>();
     Map<String,Object > allObjectTotalMap = new HashMap<>();
+    Map<String,Object > allObjectDate = new HashMap<>();
+
 
     private final Logger log = LoggerFactory.getLogger(AllData.class);
 
@@ -47,10 +49,10 @@ public class AllData {
         allObjectMap.put("ListServPreDetteIntNoStrucDTO",servPreDetteIntNoStrucDTOS);
         allObjectMap.put("ListServPreDetteIntStrucDTO", servPreDetteIntStrucs);
         allObjectMap.put("ListSolEngNonDecDTO",solEngNonDecDTOS);
-        log.debug("REST request to update ServPreDetteIntStruc : "+ servPreDetteExtDTOS);
+        log.debug("REST request to update servPreDetteExtDTOS : "+ servPreDetteExtDTOS);
         log.debug("REST request to update ServPreDetteIntStruc : "+ servPreDetteIntStrucs);
-        log.debug("REST request to update ServPreDetteIntStruc : "+ solEngNonDecDTOS);
-        log.debug("REST request to update ServPreDetteIntStruc : "+ servPreDetteIntNoStrucDTOS);
+        log.debug("REST request to update solEngNonDecDTOS : "+ solEngNonDecDTOS);
+        log.debug("REST request to update servPreDetteIntNoStrucDTOS : "+ servPreDetteIntNoStrucDTOS);
         return allObjectMap;
     }
     public Map<String, Object> AllTotal(){
@@ -62,6 +64,14 @@ public class AllData {
         allObjectTotalMap.put("Tout les totaux SEND, SPDIS, SPDIN, SPDE", sum);
         return allObjectTotalMap;
     }
+    public Map<String, Object> AllDate(){
+        allObjectDate.put("Date SEND", solEngNonDecService.showDate());
+        allObjectDate.put("Date SPDE", servPreDetteExtService.showDate());
+        allObjectDate.put("Date SPDINS", servPreDetteIntNoStrucService.showDate());
+        allObjectDate.put("Date SPDIS", servPreDetteIntStrucService.showDate());
+
+        return allObjectDate;
+    }
     @GetMapping("/all-data")
     public Map<String,Object> getAll(){
         log.debug("REST request to update ServPreDetteIntStruc : {}", AllObject());
@@ -71,6 +81,12 @@ public class AllData {
     public Map<String, Object> getAllTotal(){
         log.debug("Tous les totaux : {}", AllTotal());
         return AllTotal();
+    }
+
+    @GetMapping("/all-lastdate")
+    public Map<String, Object> getAllDate(){
+        log.debug("Tous les totaux : {}", AllDate());
+        return AllDate();
     }
 }
 

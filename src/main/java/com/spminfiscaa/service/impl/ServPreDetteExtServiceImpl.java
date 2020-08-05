@@ -6,8 +6,6 @@ import com.spminfiscaa.domain.ServPreDetteExt;
 import com.spminfiscaa.repository.ServPreDetteExtRepository;
 import com.spminfiscaa.service.dto.ServPreDetteExtDTO;
 import com.spminfiscaa.service.mapper.ServPreDetteExtMapper;
-import jdk.internal.jline.internal.TestAccessible;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -127,4 +125,9 @@ public class ServPreDetteExtServiceImpl implements ServPreDetteExtService {
         return dateObject;
     }
 
+    @Override
+    public String showDate() {
+        System.out.println(servPreDetteExtRepository.showLastAddServPreDetteExt());
+        return servPreDetteExtRepository.showLastAddServPreDetteExt().toString();
+    }
 }

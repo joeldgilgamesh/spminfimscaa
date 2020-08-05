@@ -116,4 +116,9 @@ public class ServPreDetteIntStrucServiceImpl implements ServPreDetteIntStrucServ
     public int somme() {
         return servPreDetteIntStrucRepository.sommeServPreDetteIntStruc();
     }
+
+    @Override
+    public String showDate() {
+        return servPreDetteIntStrucRepository.showServPreDetteIntStruc().toString();
+    }
 }

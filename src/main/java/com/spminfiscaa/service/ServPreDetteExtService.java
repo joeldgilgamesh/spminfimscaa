@@ -47,8 +47,13 @@ public interface ServPreDetteExtService {
 
     //Methode Excel
     void save(MultipartFile file);
+
     ByteArrayInputStream load();
+
     int somme();
 
-    Map<String,Object> showTri(Date dateStart, Date dateEnd);
+    Map<String, Object> showTri(Date dateStart, Date dateEnd);
+
+    String showDate();
+
 }

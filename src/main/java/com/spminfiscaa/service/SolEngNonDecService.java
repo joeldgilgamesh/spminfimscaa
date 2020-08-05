@@ -51,6 +51,7 @@ public interface SolEngNonDecService {
 
     //somme solde Engagee Non Declarer
     public int somme();
+    String showDate();
 
 
 }

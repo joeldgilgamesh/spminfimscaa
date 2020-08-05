@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Map;
 
@@ -23,4 +24,8 @@ public interface ServPreDetteExtRepository extends JpaRepository<ServPreDetteExt
         "%m,%d') as date FROM ServPreDetteExt ac where ac.date BETWEEN : startDate and : " +
         "enDate group by function('date_format', max(ac.date), '%Y, %m, %d') ")
     Map<String, Object> showDateServPreDetteExt(@Param("startDate") Date startDate, @Param("enDate") Date enDate);
+
+    @Query("select  max (dat.date) as date from ServPreDetteExt dat  ")
+    LocalDate showLastAddServPreDetteExt();
+
 }

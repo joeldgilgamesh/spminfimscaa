@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -164,5 +165,9 @@ public class ServPreDetteExtResource {
     public Map<String,Object> getInterval(@RequestParam Date dateStart, @RequestParam Date dateEnd){
         log.debug("REST request to delete SolEngNonDec : {}" , servPreDetteExtService.showTri(dateStart, dateEnd));
         return servPreDetteExtService.showTri(dateStart, dateEnd);
+    }
+    @GetMapping("SPDE-date")
+    public String getLastDate (){
+        return servPreDetteExtService.showDate();
     }
 }

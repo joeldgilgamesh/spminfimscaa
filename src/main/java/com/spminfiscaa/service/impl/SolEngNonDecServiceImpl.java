@@ -120,5 +120,8 @@ public class SolEngNonDecServiceImpl implements SolEngNonDecService {
         return solEngNonDecRepository.sommeSolEngNonDec();
     }
 
-
+    @Override
+    public String showDate() {
+        return solEngNonDecRepository.showSolEngNonDec().toString();
+    }
 }
