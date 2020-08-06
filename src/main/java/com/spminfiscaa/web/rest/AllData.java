@@ -27,7 +27,9 @@ public class AllData {
     private final SolEngNonDecService solEngNonDecService;
     Map<String,Object > allObjectMap = new HashMap<>();
     Map<String,Object > allObjectTotalMap = new HashMap<>();
+    Map<String,Object > allDonneeObject = new HashMap<>();
     Map<String,Object > allObjectDate = new HashMap<>();
+    Map<String,Object > total = new HashMap<>();
 
 
     private final Logger log = LoggerFactory.getLogger(AllData.class);
@@ -55,38 +57,52 @@ public class AllData {
         log.debug("REST request to update servPreDetteIntNoStrucDTOS : "+ servPreDetteIntNoStrucDTOS);
         return allObjectMap;
     }
-    public Map<String, Object> AllTotal(){
-        int data1 = solEngNonDecService.somme();
+
+    public Map<String, Object> detteTotal(){
         int data2 = servPreDetteIntNoStrucService.somme();
         int data3 = servPreDetteExtService.somme();
         int data4 = servPreDetteIntStrucService.somme();
-        int sum = data1 + data2 + data3 + data4 ;
-        allObjectTotalMap.put("Tout les totaux SEND, SPDIS, SPDIN, SPDE", sum);
+        int sum =  data2 + data3 + data4 ;
+        allObjectTotalMap.put("Tout les totaux , SPDIS, SPDIN, SPDE", sum);
         return allObjectTotalMap;
     }
+    public Map<String, Object> Total(){
+        total.put("Total solde engage non decaissee", solEngNonDecService.somme());
+        total.put("Total dette extérieur", servPreDetteExtService.somme());
+        total.put("Total dette interieur structurer", servPreDetteIntStrucService.somme());
+        total.put("Total dette interieur non structurer", servPreDetteIntNoStrucService.somme());
+        return total;
+    }
+
     public Map<String, Object> AllDate(){
         allObjectDate.put("Date SEND", solEngNonDecService.showDate());
         allObjectDate.put("Date SPDE", servPreDetteExtService.showDate());
         allObjectDate.put("Date SPDINS", servPreDetteIntNoStrucService.showDate());
         allObjectDate.put("Date SPDIS", servPreDetteIntStrucService.showDate());
-
         return allObjectDate;
+    }
+    public Map<String, Object> AllDataObject(){
+        allDonneeObject.put("Dette Total", detteTotal());
+        allDonneeObject.put("Somme SEND, SPDE, SPDINS, SPDIS", Total());
+        allDonneeObject.put("Total dette interieur ", servPreDetteIntStrucService.somme()+servPreDetteIntNoStrucService.somme());
+        allDonneeObject.put("Date derinère importation", AllDate());
+        return allDonneeObject;
     }
     @GetMapping("/all-data")
     public Map<String,Object> getAll(){
-        log.debug("REST request to update ServPreDetteIntStruc : {}", AllObject());
-        return AllObject();
+        log.debug("REST request to update ServPreDetteIntStruc : {}", AllDataObject());
+        return AllDataObject();
     }
-    @GetMapping("/all-total")
+  /*  @GetMapping("/all-total")
     public Map<String, Object> getAllTotal(){
-        log.debug("Tous les totaux : {}", AllTotal());
-        return AllTotal();
+        log.debug("Tous les totaux : {}", detteTotal());
+        return detteTotal();
     }
 
     @GetMapping("/all-lastdate")
     public Map<String, Object> getAllDate(){
         log.debug("Tous les totaux : {}", AllDate());
         return AllDate();
-    }
+    }*/
 }
 
