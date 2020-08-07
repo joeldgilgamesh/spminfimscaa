@@ -1,11 +1,11 @@
-id;categorie;total;echeance;date
-1;models dynamic;30389;2020-07-08;2020-07-07
-2;navigate;87470;2020-07-07;2020-07-07
-3;deposit;46962;2020-07-08;2020-07-07
-4;invoice;4332;2020-07-08;2020-07-08
-5;Car integrate;16125;2020-07-07;2020-07-08
-6;Accounts connecting transmitter;92769;2020-07-07;2020-07-07
-7;Toys;95871;2020-07-08;2020-07-07
-8;mobile solutions;34935;2020-07-07;2020-07-08
-9;synthesize Bedfordshire;51057;2020-07-08;2020-07-08
-10;Bedfordshire invoice mobile;72524;2020-07-07;2020-07-08
+id;categorie;echeance;date;total
+1;models dynamic;2020-07-08;2020-07-08;40219
+2;navigate;2020-07-07;2020-07-07;51786
+3;deposit;2020-07-07;2020-07-08;86308
+4;invoice;2020-07-08;2020-07-08;18009
+5;Car integrate;2020-07-08;2020-07-07;12080
+6;Accounts connecting transmitter;2020-07-07;2020-07-07;86132
+7;Toys;2020-07-07;2020-07-08;99761
+8;mobile solutions;2020-07-08;2020-07-07;27755
+9;synthesize Bedfordshire;2020-07-07;2020-07-08;20121
+10;Bedfordshire invoice mobile;2020-07-07;2020-07-07;31011

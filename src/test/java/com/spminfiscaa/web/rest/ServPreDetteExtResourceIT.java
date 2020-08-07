@@ -49,14 +49,14 @@ public class ServPreDetteExtResourceIT {
     private static final Integer DEFAULT_INTERET = 1;
     private static final Integer UPDATED_INTERET = 2;
 
-    private static final Integer DEFAULT_TOTAL = 1;
-    private static final Integer UPDATED_TOTAL = 2;
-
     private static final LocalDate DEFAULT_ECHEANCE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_ECHEANCE = LocalDate.now(ZoneId.systemDefault());
 
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final Long DEFAULT_TOTAL = 1L;
+    private static final Long UPDATED_TOTAL = 2L;
 
     @Autowired
     private ServPreDetteExtRepository servPreDetteExtRepository;
@@ -88,9 +88,9 @@ public class ServPreDetteExtResourceIT {
             .type_fond(DEFAULT_TYPE_FOND)
             .montant_a_rembourser(DEFAULT_MONTANT_A_REMBOURSER)
             .interet(DEFAULT_INTERET)
-            .total(DEFAULT_TOTAL)
             .echeance(DEFAULT_ECHEANCE)
-            .date(DEFAULT_DATE);
+            .date(DEFAULT_DATE)
+            .total(DEFAULT_TOTAL);
         return servPreDetteExt;
     }
     /**
@@ -106,9 +106,9 @@ public class ServPreDetteExtResourceIT {
             .type_fond(UPDATED_TYPE_FOND)
             .montant_a_rembourser(UPDATED_MONTANT_A_REMBOURSER)
             .interet(UPDATED_INTERET)
-            .total(UPDATED_TOTAL)
             .echeance(UPDATED_ECHEANCE)
-            .date(UPDATED_DATE);
+            .date(UPDATED_DATE)
+            .total(UPDATED_TOTAL);
         return servPreDetteExt;
     }
 
@@ -137,9 +137,9 @@ public class ServPreDetteExtResourceIT {
         assertThat(testServPreDetteExt.getType_fond()).isEqualTo(DEFAULT_TYPE_FOND);
         assertThat(testServPreDetteExt.getMontant_a_rembourser()).isEqualTo(DEFAULT_MONTANT_A_REMBOURSER);
         assertThat(testServPreDetteExt.getInteret()).isEqualTo(DEFAULT_INTERET);
-        assertThat(testServPreDetteExt.getTotal()).isEqualTo(DEFAULT_TOTAL);
         assertThat(testServPreDetteExt.getEcheance()).isEqualTo(DEFAULT_ECHEANCE);
         assertThat(testServPreDetteExt.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testServPreDetteExt.getTotal()).isEqualTo(DEFAULT_TOTAL);
     }
 
     @Test
@@ -179,9 +179,9 @@ public class ServPreDetteExtResourceIT {
             .andExpect(jsonPath("$.[*].type_fond").value(hasItem(DEFAULT_TYPE_FOND)))
             .andExpect(jsonPath("$.[*].montant_a_rembourser").value(hasItem(DEFAULT_MONTANT_A_REMBOURSER)))
             .andExpect(jsonPath("$.[*].interet").value(hasItem(DEFAULT_INTERET)))
-            .andExpect(jsonPath("$.[*].total").value(hasItem(DEFAULT_TOTAL)))
             .andExpect(jsonPath("$.[*].echeance").value(hasItem(DEFAULT_ECHEANCE.toString())))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())));
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
+            .andExpect(jsonPath("$.[*].total").value(hasItem(DEFAULT_TOTAL.intValue())));
     }
     
     @Test
@@ -200,9 +200,9 @@ public class ServPreDetteExtResourceIT {
             .andExpect(jsonPath("$.type_fond").value(DEFAULT_TYPE_FOND))
             .andExpect(jsonPath("$.montant_a_rembourser").value(DEFAULT_MONTANT_A_REMBOURSER))
             .andExpect(jsonPath("$.interet").value(DEFAULT_INTERET))
-            .andExpect(jsonPath("$.total").value(DEFAULT_TOTAL))
             .andExpect(jsonPath("$.echeance").value(DEFAULT_ECHEANCE.toString()))
-            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()));
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
+            .andExpect(jsonPath("$.total").value(DEFAULT_TOTAL.intValue()));
     }
     @Test
     @Transactional
@@ -230,9 +230,9 @@ public class ServPreDetteExtResourceIT {
             .type_fond(UPDATED_TYPE_FOND)
             .montant_a_rembourser(UPDATED_MONTANT_A_REMBOURSER)
             .interet(UPDATED_INTERET)
-            .total(UPDATED_TOTAL)
             .echeance(UPDATED_ECHEANCE)
-            .date(UPDATED_DATE);
+            .date(UPDATED_DATE)
+            .total(UPDATED_TOTAL);
         ServPreDetteExtDTO servPreDetteExtDTO = servPreDetteExtMapper.toDto(updatedServPreDetteExt);
 
         restServPreDetteExtMockMvc.perform(put("/api/serv-pre-dette-exts")
@@ -249,9 +249,9 @@ public class ServPreDetteExtResourceIT {
         assertThat(testServPreDetteExt.getType_fond()).isEqualTo(UPDATED_TYPE_FOND);
         assertThat(testServPreDetteExt.getMontant_a_rembourser()).isEqualTo(UPDATED_MONTANT_A_REMBOURSER);
         assertThat(testServPreDetteExt.getInteret()).isEqualTo(UPDATED_INTERET);
-        assertThat(testServPreDetteExt.getTotal()).isEqualTo(UPDATED_TOTAL);
         assertThat(testServPreDetteExt.getEcheance()).isEqualTo(UPDATED_ECHEANCE);
         assertThat(testServPreDetteExt.getDate()).isEqualTo(UPDATED_DATE);
+        assertThat(testServPreDetteExt.getTotal()).isEqualTo(UPDATED_TOTAL);
     }
 
     @Test

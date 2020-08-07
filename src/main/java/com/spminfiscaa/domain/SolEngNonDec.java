@@ -31,14 +31,14 @@ public class SolEngNonDec implements Serializable {
     @Column(name = "type_fond")
     private String type_fond;
 
-    @Column(name = "solde")
-    private Integer solde;
-
     @Column(name = "commission")
     private Integer commission;
 
     @Column(name = "date")
     private LocalDate date;
+
+    @Column(name = "solde")
+    private Long solde;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -88,19 +88,6 @@ public class SolEngNonDec implements Serializable {
         this.type_fond = type_fond;
     }
 
-    public Integer getSolde() {
-        return solde;
-    }
-
-    public SolEngNonDec solde(Integer solde) {
-        this.solde = solde;
-        return this;
-    }
-
-    public void setSolde(Integer solde) {
-        this.solde = solde;
-    }
-
     public Integer getCommission() {
         return commission;
     }
@@ -125,6 +112,19 @@ public class SolEngNonDec implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Long getSolde() {
+        return solde;
+    }
+
+    public SolEngNonDec solde(Long solde) {
+        this.solde = solde;
+        return this;
+    }
+
+    public void setSolde(Long solde) {
+        this.solde = solde;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -152,9 +152,9 @@ public class SolEngNonDec implements Serializable {
             ", bailleur='" + getBailleur() + "'" +
             ", type_cooperation='" + getType_cooperation() + "'" +
             ", type_fond='" + getType_fond() + "'" +
-            ", solde=" + getSolde() +
             ", commission=" + getCommission() +
             ", date='" + getDate() + "'" +
+            ", solde=" + getSolde() +
             "}";
     }
 }

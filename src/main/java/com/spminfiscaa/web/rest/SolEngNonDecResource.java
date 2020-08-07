@@ -155,7 +155,7 @@ public class SolEngNonDecResource {
     }
 
     @GetMapping("/SEND-total")
-    public int getTotal() {
+    public long getTotal() {
         log.debug("REST request to delete SolEngNonDec : {}" , solEngNonDecService.somme());
       return  solEngNonDecService.somme();
     }

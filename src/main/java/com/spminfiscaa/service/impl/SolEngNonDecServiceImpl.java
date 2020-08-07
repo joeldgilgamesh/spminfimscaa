@@ -116,7 +116,7 @@ public class SolEngNonDecServiceImpl implements SolEngNonDecService {
     }
 
     @Override
-    public int somme() {
+    public Long somme() {
         return solEngNonDecRepository.sommeSolEngNonDec();
     }
 

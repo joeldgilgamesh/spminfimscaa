@@ -16,16 +16,16 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "solde",
-      "fieldType": "Integer"
-    },
-    {
       "fieldName": "commission",
       "fieldType": "Integer"
     },
     {
       "fieldName": "date",
       "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "solde",
+      "fieldType": "Long"
     }
   ],
   "changelogDate": "20200708080509",

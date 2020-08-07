@@ -75,9 +75,9 @@ class SolEngNonDecGatlingTest extends Simulation {
                 , "bailleur":"SAMPLE_TEXT"
                 , "type_cooperation":"SAMPLE_TEXT"
                 , "type_fond":"SAMPLE_TEXT"
-                , "solde":"0"
                 , "commission":"0"
                 , "date":"2020-01-01T00:00:00.000Z"
+                , "solde":null
                 }""")).asJson
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_solEngNonDec_url"))).exitHereIfFailed

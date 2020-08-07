@@ -114,7 +114,7 @@ public class CsvSPDE {
                             servPreDetteExt.setInteret((int)currentCell.getNumericCellValue());
                             break;
                         case 5:
-                            servPreDetteExt.setTotal((int)currentCell.getNumericCellValue());
+                            servPreDetteExt.setTotal((long)currentCell.getNumericCellValue());
                             break;
                         case 6:
                             servPreDetteExt.setEcheance(LocalDate.parse(currentCell.toString(), DateTimeFormatter.ofPattern("dd-MMM-yyyy")));

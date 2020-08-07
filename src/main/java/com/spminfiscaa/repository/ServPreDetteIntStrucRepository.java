@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Repository
 public interface ServPreDetteIntStrucRepository extends JpaRepository<ServPreDetteIntStruc, Long> {
     @Query("SELECT sum(t.total) from ServPreDetteIntStruc t")
-    public int sommeServPreDetteIntStruc();
+    Long sommeServPreDetteIntStruc();
 
     @Query("select  max (dat.date) as date from ServPreDetteIntStruc dat  ")
     LocalDate showServPreDetteIntStruc();

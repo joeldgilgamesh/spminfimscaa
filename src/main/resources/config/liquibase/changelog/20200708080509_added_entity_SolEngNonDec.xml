@@ -25,13 +25,13 @@
             <column name="type_fond" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="solde" type="integer">
-                <constraints nullable="true" />
-            </column>
             <column name="commission" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="solde" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
@@ -60,9 +60,9 @@
             <column name="bailleur" type="string"/>
             <column name="type_cooperation" type="string"/>
             <column name="type_fond" type="string"/>
-            <column name="solde" type="numeric"/>
             <column name="commission" type="numeric"/>
             <column name="date" type="date"/>
+            <column name="solde" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

@@ -110,7 +110,7 @@ public class ServPreDetteIntNoStrucServiceImpl implements ServPreDetteIntNoStruc
     }
 
     @Override
-    public int somme() {
+    public Long somme() {
         return servPreDetteIntNoStrucRepository.sommeServPreDetteIntNoStruc();
     }
 

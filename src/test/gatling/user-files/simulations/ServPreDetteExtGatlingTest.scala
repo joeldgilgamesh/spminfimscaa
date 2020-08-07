@@ -77,9 +77,9 @@ class ServPreDetteExtGatlingTest extends Simulation {
                 , "type_fond":"SAMPLE_TEXT"
                 , "montant_a_rembourser":"0"
                 , "interet":"0"
-                , "total":"0"
                 , "echeance":"2020-01-01T00:00:00.000Z"
                 , "date":"2020-01-01T00:00:00.000Z"
+                , "total":null
                 }""")).asJson
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_servPreDetteExt_url"))).exitHereIfFailed

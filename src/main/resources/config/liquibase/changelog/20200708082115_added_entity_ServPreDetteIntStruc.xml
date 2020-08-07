@@ -31,13 +31,13 @@
             <column name="interet" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="total" type="integer">
-                <constraints nullable="true" />
-            </column>
             <column name="echeance" type="date">
                 <constraints nullable="true" />
             </column>
             <column name="date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="total" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
@@ -68,9 +68,9 @@
             <column name="groupe" type="string"/>
             <column name="principale" type="numeric"/>
             <column name="interet" type="numeric"/>
-            <column name="total" type="numeric"/>
             <column name="echeance" type="date"/>
             <column name="date" type="date"/>
+            <column name="total" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

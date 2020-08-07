@@ -59,10 +59,10 @@ public class AllData {
     }
 
     public Map<String, Object> detteTotal(){
-        int data2 = servPreDetteIntNoStrucService.somme();
-        int data3 = servPreDetteExtService.somme();
-        int data4 = servPreDetteIntStrucService.somme();
-        int sum =  data2 + data3 + data4 ;
+        Long data2 = servPreDetteIntNoStrucService.somme();
+        Long data3 = servPreDetteExtService.somme();
+        Long data4 = servPreDetteIntStrucService.somme();
+        Long sum =  data2 + data3 + data4 ;
         allObjectTotalMap.put("Tout les totaux , SPDIS, SPDIN, SPDE", sum);
         return allObjectTotalMap;
     }

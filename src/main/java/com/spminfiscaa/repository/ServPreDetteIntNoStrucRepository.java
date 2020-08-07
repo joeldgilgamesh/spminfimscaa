@@ -17,7 +17,7 @@ import java.util.Map;
 @Repository
 public interface ServPreDetteIntNoStrucRepository extends JpaRepository<ServPreDetteIntNoStruc, Long> {
     @Query("SELECT sum(t.total) from ServPreDetteIntNoStruc t")
-    public int sommeServPreDetteIntNoStruc();
+    Long sommeServPreDetteIntNoStruc();
 
     @Query("select  max (dat.date) as date from ServPreDetteIntNoStruc dat  ")
     LocalDate showServPreDetteIntNoStruc();

@@ -1,11 +1,11 @@
-id;bailleur;type_cooperation;type_fond;solde;commission;date
-1;matrix 24/7 Beauty;Chips channels;SMTP Tactics;49227;83952;2020-07-08
-2;indexing COM;Bahraini Dinar Assimilated Home Loan Account;plum bypassing;90868;90034;2020-07-07
-3;Credit Card Account Lead Trail;Awesome Fantastic;bus visualize Cheese;25776;97719;2020-07-07
-4;streamline;cross-platform Rubber South Carolina;knowledge user Cambridgeshire optical;81387;42643;2020-07-08
-5;regional action-items;payment;repurpose Steel user-centric;93476;17329;2020-07-07
-6;exploit;EXE;reboot black;14670;65400;2020-07-08
-7;Toys compress;Shoes;Expressway;68669;94609;2020-07-08
-8;Soap deliver;transmitting pixel Secured;Investment Account Central;77175;50784;2020-07-08
-9;SAS navigating;Personal Loan Account deposit District;Legacy Fish;11858;69918;2020-07-07
-10;Monitored;Games;Shoes Checking Account Money Market Account;33345;8936;2020-07-08
+id;bailleur;type_cooperation;type_fond;commission;date;solde
+1;matrix 24/7 Beauty;Chips channels;SMTP Tactics;49227;2020-07-07;4938
+2;indexing COM;Bahraini Dinar Assimilated Home Loan Account;plum bypassing;90868;2020-07-07;55607
+3;Credit Card Account Lead Trail;Awesome Fantastic;bus visualize Cheese;25776;2020-07-07;81119
+4;streamline;cross-platform Rubber South Carolina;knowledge user Cambridgeshire optical;81387;2020-07-07;23416
+5;regional action-items;payment;repurpose Steel user-centric;93476;2020-07-08;51420
+6;exploit;EXE;reboot black;14670;2020-07-07;15514
+7;Toys compress;Shoes;Expressway;68669;2020-07-07;24662
+8;Soap deliver;transmitting pixel Secured;Investment Account Central;77175;2020-07-07;21669
+9;SAS navigating;Personal Loan Account deposit District;Legacy Fish;11858;2020-07-07;91833
+10;Monitored;Games;Shoes Checking Account Money Market Account;33345;2020-07-08;1828

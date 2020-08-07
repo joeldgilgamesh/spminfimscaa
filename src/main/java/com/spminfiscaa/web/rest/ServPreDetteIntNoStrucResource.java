@@ -152,7 +152,7 @@ public class ServPreDetteIntNoStrucResource {
             .body(file);
     }
     @GetMapping("/SPDINS-total")
-    public int getTotal() {
+    public long getTotal() {
         log.debug("REST request to delete SolEngNonDec : {}" , servPreDetteIntNoStrucService.somme());
         return  servPreDetteIntNoStrucService.somme();
     }

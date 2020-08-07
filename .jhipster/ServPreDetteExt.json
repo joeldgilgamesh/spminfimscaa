@@ -24,16 +24,16 @@
       "fieldType": "Integer"
     },
     {
-      "fieldName": "total",
-      "fieldType": "Integer"
-    },
-    {
       "fieldName": "echeance",
       "fieldType": "LocalDate"
     },
     {
       "fieldName": "date",
       "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Long"
     }
   ],
   "changelogDate": "20200708081306",

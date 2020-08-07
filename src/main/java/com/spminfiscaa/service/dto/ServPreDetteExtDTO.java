@@ -20,11 +20,11 @@ public class ServPreDetteExtDTO implements Serializable {
 
     private Integer interet;
 
-    private Integer total;
-
     private LocalDate echeance;
 
     private LocalDate date;
+
+    private Long total;
 
     
     public Long getId() {
@@ -75,14 +75,6 @@ public class ServPreDetteExtDTO implements Serializable {
         this.interet = interet;
     }
 
-    public Integer getTotal() {
-        return total;
-    }
-
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
-
     public LocalDate getEcheance() {
         return echeance;
     }
@@ -97,6 +89,14 @@ public class ServPreDetteExtDTO implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public void setTotal(Long total) {
+        this.total = total;
     }
 
     @Override
@@ -126,9 +126,9 @@ public class ServPreDetteExtDTO implements Serializable {
             ", type_fond='" + getType_fond() + "'" +
             ", montant_a_rembourser=" + getMontant_a_rembourser() +
             ", interet=" + getInteret() +
-            ", total=" + getTotal() +
             ", echeance='" + getEcheance() + "'" +
             ", date='" + getDate() + "'" +
+            ", total=" + getTotal() +
             "}";
     }
 }

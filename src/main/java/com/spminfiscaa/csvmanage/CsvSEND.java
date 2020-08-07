@@ -153,7 +153,7 @@ public class CsvSEND {
                             solEngNonDec.setType_fond(currentCell.getStringCellValue());
                             break;
                         case 3:
-                            solEngNonDec.setSolde((int)currentCell.getNumericCellValue());
+                            solEngNonDec.setSolde((long)currentCell.getNumericCellValue());
                             break;
                         case 4:
                             solEngNonDec.setDate(LocalDate.parse(currentCell.toString(), DateTimeFormatter.ofPattern("dd-MMM-yyyy")));

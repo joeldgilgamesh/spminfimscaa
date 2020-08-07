@@ -45,8 +45,11 @@ public interface ServPreDetteIntStrucService {
 
     //Methode Excel
     void save(MultipartFile file);
+
     ByteArrayInputStream load();
-    int somme();
+
+    Long somme();
+
     String showDate();
 
 }

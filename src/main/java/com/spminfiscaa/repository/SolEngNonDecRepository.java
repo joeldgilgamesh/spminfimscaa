@@ -16,7 +16,7 @@ public interface SolEngNonDecRepository extends JpaRepository<SolEngNonDec, Long
 
     //somme solde Engagee Non Declarer
     @Query("SELECT sum(t.solde) from SolEngNonDec t")
-    public int sommeSolEngNonDec();
+    Long sommeSolEngNonDec();
 
     @Query("select  max (dat.date) as date from SolEngNonDec dat  ")
     LocalDate showSolEngNonDec();

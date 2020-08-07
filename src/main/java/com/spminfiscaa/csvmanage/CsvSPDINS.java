@@ -104,7 +104,7 @@ public class CsvSPDINS {
                             servPreDetteIntNoStruc.setCategorie(currentCell.getStringCellValue());
                             break;
                         case 1:
-                            servPreDetteIntNoStruc.setTotal((int)currentCell.getNumericCellValue());
+                            servPreDetteIntNoStruc.setTotal((long) currentCell.getNumericCellValue());
                             break;
                         case 2:
                             servPreDetteIntNoStruc.setEcheance(LocalDate.parse(currentCell.toString(), DateTimeFormatter.ofPattern("dd-MMM-yyyy")));

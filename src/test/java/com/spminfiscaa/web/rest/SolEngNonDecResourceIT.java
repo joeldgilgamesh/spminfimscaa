@@ -43,14 +43,14 @@ public class SolEngNonDecResourceIT {
     private static final String DEFAULT_TYPE_FOND = "AAAAAAAAAA";
     private static final String UPDATED_TYPE_FOND = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_SOLDE = 1;
-    private static final Integer UPDATED_SOLDE = 2;
-
     private static final Integer DEFAULT_COMMISSION = 1;
     private static final Integer UPDATED_COMMISSION = 2;
 
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final Long DEFAULT_SOLDE = 1L;
+    private static final Long UPDATED_SOLDE = 2L;
 
     @Autowired
     private SolEngNonDecRepository solEngNonDecRepository;
@@ -80,9 +80,9 @@ public class SolEngNonDecResourceIT {
             .bailleur(DEFAULT_BAILLEUR)
             .type_cooperation(DEFAULT_TYPE_COOPERATION)
             .type_fond(DEFAULT_TYPE_FOND)
-            .solde(DEFAULT_SOLDE)
             .commission(DEFAULT_COMMISSION)
-            .date(DEFAULT_DATE);
+            .date(DEFAULT_DATE)
+            .solde(DEFAULT_SOLDE);
         return solEngNonDec;
     }
     /**
@@ -96,9 +96,9 @@ public class SolEngNonDecResourceIT {
             .bailleur(UPDATED_BAILLEUR)
             .type_cooperation(UPDATED_TYPE_COOPERATION)
             .type_fond(UPDATED_TYPE_FOND)
-            .solde(UPDATED_SOLDE)
             .commission(UPDATED_COMMISSION)
-            .date(UPDATED_DATE);
+            .date(UPDATED_DATE)
+            .solde(UPDATED_SOLDE);
         return solEngNonDec;
     }
 
@@ -125,9 +125,9 @@ public class SolEngNonDecResourceIT {
         assertThat(testSolEngNonDec.getBailleur()).isEqualTo(DEFAULT_BAILLEUR);
         assertThat(testSolEngNonDec.getType_cooperation()).isEqualTo(DEFAULT_TYPE_COOPERATION);
         assertThat(testSolEngNonDec.getType_fond()).isEqualTo(DEFAULT_TYPE_FOND);
-        assertThat(testSolEngNonDec.getSolde()).isEqualTo(DEFAULT_SOLDE);
         assertThat(testSolEngNonDec.getCommission()).isEqualTo(DEFAULT_COMMISSION);
         assertThat(testSolEngNonDec.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testSolEngNonDec.getSolde()).isEqualTo(DEFAULT_SOLDE);
     }
 
     @Test
@@ -165,9 +165,9 @@ public class SolEngNonDecResourceIT {
             .andExpect(jsonPath("$.[*].bailleur").value(hasItem(DEFAULT_BAILLEUR)))
             .andExpect(jsonPath("$.[*].type_cooperation").value(hasItem(DEFAULT_TYPE_COOPERATION)))
             .andExpect(jsonPath("$.[*].type_fond").value(hasItem(DEFAULT_TYPE_FOND)))
-            .andExpect(jsonPath("$.[*].solde").value(hasItem(DEFAULT_SOLDE)))
             .andExpect(jsonPath("$.[*].commission").value(hasItem(DEFAULT_COMMISSION)))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())));
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
+            .andExpect(jsonPath("$.[*].solde").value(hasItem(DEFAULT_SOLDE.intValue())));
     }
     
     @Test
@@ -184,9 +184,9 @@ public class SolEngNonDecResourceIT {
             .andExpect(jsonPath("$.bailleur").value(DEFAULT_BAILLEUR))
             .andExpect(jsonPath("$.type_cooperation").value(DEFAULT_TYPE_COOPERATION))
             .andExpect(jsonPath("$.type_fond").value(DEFAULT_TYPE_FOND))
-            .andExpect(jsonPath("$.solde").value(DEFAULT_SOLDE))
             .andExpect(jsonPath("$.commission").value(DEFAULT_COMMISSION))
-            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()));
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
+            .andExpect(jsonPath("$.solde").value(DEFAULT_SOLDE.intValue()));
     }
     @Test
     @Transactional
@@ -212,9 +212,9 @@ public class SolEngNonDecResourceIT {
             .bailleur(UPDATED_BAILLEUR)
             .type_cooperation(UPDATED_TYPE_COOPERATION)
             .type_fond(UPDATED_TYPE_FOND)
-            .solde(UPDATED_SOLDE)
             .commission(UPDATED_COMMISSION)
-            .date(UPDATED_DATE);
+            .date(UPDATED_DATE)
+            .solde(UPDATED_SOLDE);
         SolEngNonDecDTO solEngNonDecDTO = solEngNonDecMapper.toDto(updatedSolEngNonDec);
 
         restSolEngNonDecMockMvc.perform(put("/api/sol-eng-non-decs")
@@ -229,9 +229,9 @@ public class SolEngNonDecResourceIT {
         assertThat(testSolEngNonDec.getBailleur()).isEqualTo(UPDATED_BAILLEUR);
         assertThat(testSolEngNonDec.getType_cooperation()).isEqualTo(UPDATED_TYPE_COOPERATION);
         assertThat(testSolEngNonDec.getType_fond()).isEqualTo(UPDATED_TYPE_FOND);
-        assertThat(testSolEngNonDec.getSolde()).isEqualTo(UPDATED_SOLDE);
         assertThat(testSolEngNonDec.getCommission()).isEqualTo(UPDATED_COMMISSION);
         assertThat(testSolEngNonDec.getDate()).isEqualTo(UPDATED_DATE);
+        assertThat(testSolEngNonDec.getSolde()).isEqualTo(UPDATED_SOLDE);
     }
 
     @Test

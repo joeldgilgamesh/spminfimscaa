@@ -12,11 +12,11 @@ public class ServPreDetteIntNoStrucDTO implements Serializable {
 
     private String categorie;
 
-    private Integer total;
-
     private LocalDate echeance;
 
     private LocalDate date;
+
+    private Long total;
 
     
     public Long getId() {
@@ -35,14 +35,6 @@ public class ServPreDetteIntNoStrucDTO implements Serializable {
         this.categorie = categorie;
     }
 
-    public Integer getTotal() {
-        return total;
-    }
-
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
-
     public LocalDate getEcheance() {
         return echeance;
     }
@@ -57,6 +49,14 @@ public class ServPreDetteIntNoStrucDTO implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public void setTotal(Long total) {
+        this.total = total;
     }
 
     @Override
@@ -82,9 +82,9 @@ public class ServPreDetteIntNoStrucDTO implements Serializable {
         return "ServPreDetteIntNoStrucDTO{" +
             "id=" + getId() +
             ", categorie='" + getCategorie() + "'" +
-            ", total=" + getTotal() +
             ", echeance='" + getEcheance() + "'" +
             ", date='" + getDate() + "'" +
+            ", total=" + getTotal() +
             "}";
     }
 }

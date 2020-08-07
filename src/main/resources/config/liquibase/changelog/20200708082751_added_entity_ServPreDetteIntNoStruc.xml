@@ -19,13 +19,13 @@
             <column name="categorie" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="total" type="integer">
-                <constraints nullable="true" />
-            </column>
             <column name="echeance" type="date">
                 <constraints nullable="true" />
             </column>
             <column name="date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="total" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
@@ -52,9 +52,9 @@
                   tableName="serv_pre_dette_int_no_struc">
             <column name="id" type="numeric"/>
             <column name="categorie" type="string"/>
-            <column name="total" type="numeric"/>
             <column name="echeance" type="date"/>
             <column name="date" type="date"/>
+            <column name="total" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

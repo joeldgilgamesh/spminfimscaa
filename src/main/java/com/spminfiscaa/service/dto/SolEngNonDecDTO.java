@@ -16,11 +16,11 @@ public class SolEngNonDecDTO implements Serializable {
 
     private String type_fond;
 
-    private Integer solde;
-
     private Integer commission;
 
     private LocalDate date;
+
+    private Long solde;
 
     
     public Long getId() {
@@ -55,14 +55,6 @@ public class SolEngNonDecDTO implements Serializable {
         this.type_fond = type_fond;
     }
 
-    public Integer getSolde() {
-        return solde;
-    }
-
-    public void setSolde(Integer solde) {
-        this.solde = solde;
-    }
-
     public Integer getCommission() {
         return commission;
     }
@@ -77,6 +69,14 @@ public class SolEngNonDecDTO implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Long getSolde() {
+        return solde;
+    }
+
+    public void setSolde(Long solde) {
+        this.solde = solde;
     }
 
     @Override
@@ -104,9 +104,9 @@ public class SolEngNonDecDTO implements Serializable {
             ", bailleur='" + getBailleur() + "'" +
             ", type_cooperation='" + getType_cooperation() + "'" +
             ", type_fond='" + getType_fond() + "'" +
-            ", solde=" + getSolde() +
             ", commission=" + getCommission() +
             ", date='" + getDate() + "'" +
+            ", solde=" + getSolde() +
             "}";
     }
 }

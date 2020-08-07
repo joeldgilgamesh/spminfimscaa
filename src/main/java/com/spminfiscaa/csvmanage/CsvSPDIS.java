@@ -123,7 +123,7 @@ public class CsvSPDIS {
                             servPreDetteIntStruc.setInteret((int)currentCell.getNumericCellValue());
                             break;
                         case 5:
-                            servPreDetteIntStruc.setTotal((int)currentCell.getNumericCellValue());
+                            servPreDetteIntStruc.setTotal((long)currentCell.getNumericCellValue());
                             break;
                         case 6:
                             servPreDetteIntStruc.setEcheance(LocalDate.parse(currentCell.toString(), DateTimeFormatter.ofPattern("dd-MMM-yyyy")));

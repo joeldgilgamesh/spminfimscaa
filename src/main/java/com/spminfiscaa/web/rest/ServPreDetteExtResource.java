@@ -156,7 +156,7 @@ public class ServPreDetteExtResource {
             .body(file);
     }
     @GetMapping("/SPDE-total")
-    public int getTotal() {
+    public long getTotal() {
         log.debug("REST request to delete SolEngNonDec : {}" , servPreDetteExtService.somme());
         return  servPreDetteExtService.somme();
     }

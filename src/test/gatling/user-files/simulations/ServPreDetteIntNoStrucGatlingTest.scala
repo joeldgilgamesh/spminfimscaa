@@ -73,9 +73,9 @@ class ServPreDetteIntNoStrucGatlingTest extends Simulation {
             .body(StringBody("""{
                 "id":null
                 , "categorie":"SAMPLE_TEXT"
-                , "total":"0"
                 , "echeance":"2020-01-01T00:00:00.000Z"
                 , "date":"2020-01-01T00:00:00.000Z"
+                , "total":null
                 }""")).asJson
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_servPreDetteIntNoStruc_url"))).exitHereIfFailed

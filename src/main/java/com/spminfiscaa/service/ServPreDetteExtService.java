@@ -50,7 +50,7 @@ public interface ServPreDetteExtService {
 
     ByteArrayInputStream load();
 
-    int somme();
+    Long somme();
 
     Map<String, Object> showTri(Date dateStart, Date dateEnd);
 

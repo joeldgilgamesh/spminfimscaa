@@ -47,10 +47,12 @@ public interface SolEngNonDecService {
 
     //Methode Excel
     void save(MultipartFile file);
+
     ByteArrayInputStream load();
 
     //somme solde Engagee Non Declarer
-    public int somme();
+    public Long somme();
+
     String showDate();
 
 

@@ -115,7 +115,7 @@ public class ServPreDetteExtServiceImpl implements ServPreDetteExtService {
     }
 
     @Override
-    public int somme() {
+    public Long somme() {
         return servPreDetteExtRepository.sommeServPreDetteExt();
     }
 

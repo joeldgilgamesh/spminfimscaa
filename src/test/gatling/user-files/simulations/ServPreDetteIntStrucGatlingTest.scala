@@ -77,9 +77,9 @@ class ServPreDetteIntStrucGatlingTest extends Simulation {
                 , "groupe":"SAMPLE_TEXT"
                 , "principale":"0"
                 , "interet":"0"
-                , "total":"0"
                 , "echeance":"2020-01-01T00:00:00.000Z"
                 , "date":"2020-01-01T00:00:00.000Z"
+                , "total":null
                 }""")).asJson
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_servPreDetteIntStruc_url"))).exitHereIfFailed

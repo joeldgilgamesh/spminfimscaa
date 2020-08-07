@@ -18,7 +18,7 @@ import java.util.Map;
 @Repository
 public interface ServPreDetteExtRepository extends JpaRepository<ServPreDetteExt, Long> {
     @Query("SELECT sum(t.total) from ServPreDetteExt t")
-    int sommeServPreDetteExt();
+    Long sommeServPreDetteExt();
 
     @Query(value = "select count (ac) as count, function('date_format', max(ac.date), '%Y, " +
         "%m,%d') as date FROM ServPreDetteExt ac where ac.date BETWEEN : startDate and : " +

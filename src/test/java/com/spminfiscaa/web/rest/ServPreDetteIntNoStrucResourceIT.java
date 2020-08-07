@@ -37,14 +37,14 @@ public class ServPreDetteIntNoStrucResourceIT {
     private static final String DEFAULT_CATEGORIE = "AAAAAAAAAA";
     private static final String UPDATED_CATEGORIE = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_TOTAL = 1;
-    private static final Integer UPDATED_TOTAL = 2;
-
     private static final LocalDate DEFAULT_ECHEANCE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_ECHEANCE = LocalDate.now(ZoneId.systemDefault());
 
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final Long DEFAULT_TOTAL = 1L;
+    private static final Long UPDATED_TOTAL = 2L;
 
     @Autowired
     private ServPreDetteIntNoStrucRepository servPreDetteIntNoStrucRepository;
@@ -72,9 +72,9 @@ public class ServPreDetteIntNoStrucResourceIT {
     public static ServPreDetteIntNoStruc createEntity(EntityManager em) {
         ServPreDetteIntNoStruc servPreDetteIntNoStruc = new ServPreDetteIntNoStruc()
             .categorie(DEFAULT_CATEGORIE)
-            .total(DEFAULT_TOTAL)
             .echeance(DEFAULT_ECHEANCE)
-            .date(DEFAULT_DATE);
+            .date(DEFAULT_DATE)
+            .total(DEFAULT_TOTAL);
         return servPreDetteIntNoStruc;
     }
     /**
@@ -86,9 +86,9 @@ public class ServPreDetteIntNoStrucResourceIT {
     public static ServPreDetteIntNoStruc createUpdatedEntity(EntityManager em) {
         ServPreDetteIntNoStruc servPreDetteIntNoStruc = new ServPreDetteIntNoStruc()
             .categorie(UPDATED_CATEGORIE)
-            .total(UPDATED_TOTAL)
             .echeance(UPDATED_ECHEANCE)
-            .date(UPDATED_DATE);
+            .date(UPDATED_DATE)
+            .total(UPDATED_TOTAL);
         return servPreDetteIntNoStruc;
     }
 
@@ -113,9 +113,9 @@ public class ServPreDetteIntNoStrucResourceIT {
         assertThat(servPreDetteIntNoStrucList).hasSize(databaseSizeBeforeCreate + 1);
         ServPreDetteIntNoStruc testServPreDetteIntNoStruc = servPreDetteIntNoStrucList.get(servPreDetteIntNoStrucList.size() - 1);
         assertThat(testServPreDetteIntNoStruc.getCategorie()).isEqualTo(DEFAULT_CATEGORIE);
-        assertThat(testServPreDetteIntNoStruc.getTotal()).isEqualTo(DEFAULT_TOTAL);
         assertThat(testServPreDetteIntNoStruc.getEcheance()).isEqualTo(DEFAULT_ECHEANCE);
         assertThat(testServPreDetteIntNoStruc.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testServPreDetteIntNoStruc.getTotal()).isEqualTo(DEFAULT_TOTAL);
     }
 
     @Test
@@ -151,9 +151,9 @@ public class ServPreDetteIntNoStrucResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(servPreDetteIntNoStruc.getId().intValue())))
             .andExpect(jsonPath("$.[*].categorie").value(hasItem(DEFAULT_CATEGORIE)))
-            .andExpect(jsonPath("$.[*].total").value(hasItem(DEFAULT_TOTAL)))
             .andExpect(jsonPath("$.[*].echeance").value(hasItem(DEFAULT_ECHEANCE.toString())))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())));
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
+            .andExpect(jsonPath("$.[*].total").value(hasItem(DEFAULT_TOTAL.intValue())));
     }
     
     @Test
@@ -168,9 +168,9 @@ public class ServPreDetteIntNoStrucResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(servPreDetteIntNoStruc.getId().intValue()))
             .andExpect(jsonPath("$.categorie").value(DEFAULT_CATEGORIE))
-            .andExpect(jsonPath("$.total").value(DEFAULT_TOTAL))
             .andExpect(jsonPath("$.echeance").value(DEFAULT_ECHEANCE.toString()))
-            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()));
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
+            .andExpect(jsonPath("$.total").value(DEFAULT_TOTAL.intValue()));
     }
     @Test
     @Transactional
@@ -194,9 +194,9 @@ public class ServPreDetteIntNoStrucResourceIT {
         em.detach(updatedServPreDetteIntNoStruc);
         updatedServPreDetteIntNoStruc
             .categorie(UPDATED_CATEGORIE)
-            .total(UPDATED_TOTAL)
             .echeance(UPDATED_ECHEANCE)
-            .date(UPDATED_DATE);
+            .date(UPDATED_DATE)
+            .total(UPDATED_TOTAL);
         ServPreDetteIntNoStrucDTO servPreDetteIntNoStrucDTO = servPreDetteIntNoStrucMapper.toDto(updatedServPreDetteIntNoStruc);
 
         restServPreDetteIntNoStrucMockMvc.perform(put("/api/serv-pre-dette-int-no-strucs")
@@ -209,9 +209,9 @@ public class ServPreDetteIntNoStrucResourceIT {
         assertThat(servPreDetteIntNoStrucList).hasSize(databaseSizeBeforeUpdate);
         ServPreDetteIntNoStruc testServPreDetteIntNoStruc = servPreDetteIntNoStrucList.get(servPreDetteIntNoStrucList.size() - 1);
         assertThat(testServPreDetteIntNoStruc.getCategorie()).isEqualTo(UPDATED_CATEGORIE);
-        assertThat(testServPreDetteIntNoStruc.getTotal()).isEqualTo(UPDATED_TOTAL);
         assertThat(testServPreDetteIntNoStruc.getEcheance()).isEqualTo(UPDATED_ECHEANCE);
         assertThat(testServPreDetteIntNoStruc.getDate()).isEqualTo(UPDATED_DATE);
+        assertThat(testServPreDetteIntNoStruc.getTotal()).isEqualTo(UPDATED_TOTAL);
     }
 
     @Test

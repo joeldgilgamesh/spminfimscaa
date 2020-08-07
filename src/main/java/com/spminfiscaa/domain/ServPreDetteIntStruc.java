@@ -37,14 +37,14 @@ public class ServPreDetteIntStruc implements Serializable {
     @Column(name = "interet")
     private Integer interet;
 
-    @Column(name = "total")
-    private Integer total;
-
     @Column(name = "echeance")
     private LocalDate echeance;
 
     @Column(name = "date")
     private LocalDate date;
+
+    @Column(name = "total")
+    private Long total;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -120,19 +120,6 @@ public class ServPreDetteIntStruc implements Serializable {
         this.interet = interet;
     }
 
-    public Integer getTotal() {
-        return total;
-    }
-
-    public ServPreDetteIntStruc total(Integer total) {
-        this.total = total;
-        return this;
-    }
-
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
-
     public LocalDate getEcheance() {
         return echeance;
     }
@@ -157,6 +144,19 @@ public class ServPreDetteIntStruc implements Serializable {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public ServPreDetteIntStruc total(Long total) {
+        this.total = total;
+        return this;
+    }
+
+    public void setTotal(Long total) {
+        this.total = total;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -186,9 +186,9 @@ public class ServPreDetteIntStruc implements Serializable {
             ", groupe='" + getGroupe() + "'" +
             ", principale=" + getPrincipale() +
             ", interet=" + getInteret() +
-            ", total=" + getTotal() +
             ", echeance='" + getEcheance() + "'" +
             ", date='" + getDate() + "'" +
+            ", total=" + getTotal() +
             "}";
     }
 }

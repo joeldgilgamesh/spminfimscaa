@@ -49,14 +49,14 @@ public class ServPreDetteIntStrucResourceIT {
     private static final Integer DEFAULT_INTERET = 1;
     private static final Integer UPDATED_INTERET = 2;
 
-    private static final Integer DEFAULT_TOTAL = 1;
-    private static final Integer UPDATED_TOTAL = 2;
-
     private static final LocalDate DEFAULT_ECHEANCE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_ECHEANCE = LocalDate.now(ZoneId.systemDefault());
 
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final Long DEFAULT_TOTAL = 1L;
+    private static final Long UPDATED_TOTAL = 2L;
 
     @Autowired
     private ServPreDetteIntStrucRepository servPreDetteIntStrucRepository;
@@ -88,9 +88,9 @@ public class ServPreDetteIntStrucResourceIT {
             .groupe(DEFAULT_GROUPE)
             .principale(DEFAULT_PRINCIPALE)
             .interet(DEFAULT_INTERET)
-            .total(DEFAULT_TOTAL)
             .echeance(DEFAULT_ECHEANCE)
-            .date(DEFAULT_DATE);
+            .date(DEFAULT_DATE)
+            .total(DEFAULT_TOTAL);
         return servPreDetteIntStruc;
     }
     /**
@@ -106,9 +106,9 @@ public class ServPreDetteIntStrucResourceIT {
             .groupe(UPDATED_GROUPE)
             .principale(UPDATED_PRINCIPALE)
             .interet(UPDATED_INTERET)
-            .total(UPDATED_TOTAL)
             .echeance(UPDATED_ECHEANCE)
-            .date(UPDATED_DATE);
+            .date(UPDATED_DATE)
+            .total(UPDATED_TOTAL);
         return servPreDetteIntStruc;
     }
 
@@ -137,9 +137,9 @@ public class ServPreDetteIntStrucResourceIT {
         assertThat(testServPreDetteIntStruc.getGroupe()).isEqualTo(DEFAULT_GROUPE);
         assertThat(testServPreDetteIntStruc.getPrincipale()).isEqualTo(DEFAULT_PRINCIPALE);
         assertThat(testServPreDetteIntStruc.getInteret()).isEqualTo(DEFAULT_INTERET);
-        assertThat(testServPreDetteIntStruc.getTotal()).isEqualTo(DEFAULT_TOTAL);
         assertThat(testServPreDetteIntStruc.getEcheance()).isEqualTo(DEFAULT_ECHEANCE);
         assertThat(testServPreDetteIntStruc.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testServPreDetteIntStruc.getTotal()).isEqualTo(DEFAULT_TOTAL);
     }
 
     @Test
@@ -179,9 +179,9 @@ public class ServPreDetteIntStrucResourceIT {
             .andExpect(jsonPath("$.[*].groupe").value(hasItem(DEFAULT_GROUPE)))
             .andExpect(jsonPath("$.[*].principale").value(hasItem(DEFAULT_PRINCIPALE)))
             .andExpect(jsonPath("$.[*].interet").value(hasItem(DEFAULT_INTERET)))
-            .andExpect(jsonPath("$.[*].total").value(hasItem(DEFAULT_TOTAL)))
             .andExpect(jsonPath("$.[*].echeance").value(hasItem(DEFAULT_ECHEANCE.toString())))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())));
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
+            .andExpect(jsonPath("$.[*].total").value(hasItem(DEFAULT_TOTAL.intValue())));
     }
     
     @Test
@@ -200,9 +200,9 @@ public class ServPreDetteIntStrucResourceIT {
             .andExpect(jsonPath("$.groupe").value(DEFAULT_GROUPE))
             .andExpect(jsonPath("$.principale").value(DEFAULT_PRINCIPALE))
             .andExpect(jsonPath("$.interet").value(DEFAULT_INTERET))
-            .andExpect(jsonPath("$.total").value(DEFAULT_TOTAL))
             .andExpect(jsonPath("$.echeance").value(DEFAULT_ECHEANCE.toString()))
-            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()));
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
+            .andExpect(jsonPath("$.total").value(DEFAULT_TOTAL.intValue()));
     }
     @Test
     @Transactional
@@ -230,9 +230,9 @@ public class ServPreDetteIntStrucResourceIT {
             .groupe(UPDATED_GROUPE)
             .principale(UPDATED_PRINCIPALE)
             .interet(UPDATED_INTERET)
-            .total(UPDATED_TOTAL)
             .echeance(UPDATED_ECHEANCE)
-            .date(UPDATED_DATE);
+            .date(UPDATED_DATE)
+            .total(UPDATED_TOTAL);
         ServPreDetteIntStrucDTO servPreDetteIntStrucDTO = servPreDetteIntStrucMapper.toDto(updatedServPreDetteIntStruc);
 
         restServPreDetteIntStrucMockMvc.perform(put("/api/serv-pre-dette-int-strucs")
@@ -249,9 +249,9 @@ public class ServPreDetteIntStrucResourceIT {
         assertThat(testServPreDetteIntStruc.getGroupe()).isEqualTo(UPDATED_GROUPE);
         assertThat(testServPreDetteIntStruc.getPrincipale()).isEqualTo(UPDATED_PRINCIPALE);
         assertThat(testServPreDetteIntStruc.getInteret()).isEqualTo(UPDATED_INTERET);
-        assertThat(testServPreDetteIntStruc.getTotal()).isEqualTo(UPDATED_TOTAL);
         assertThat(testServPreDetteIntStruc.getEcheance()).isEqualTo(UPDATED_ECHEANCE);
         assertThat(testServPreDetteIntStruc.getDate()).isEqualTo(UPDATED_DATE);
+        assertThat(testServPreDetteIntStruc.getTotal()).isEqualTo(UPDATED_TOTAL);
     }
 
     @Test
