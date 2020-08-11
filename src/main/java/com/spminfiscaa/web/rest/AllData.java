@@ -63,29 +63,29 @@ public class AllData {
         Long data3 = servPreDetteExtService.somme();
         Long data4 = servPreDetteIntStrucService.somme();
         Long sum =  data2 + data3 + data4 ;
-        allObjectTotalMap.put("Tout les totaux , SPDIS, SPDIN, SPDE", sum);
+        allObjectTotalMap.put("ToutLesTotauxSpdisSpdinSpde", sum);
         return allObjectTotalMap;
     }
     public Map<String, Object> Total(){
-        total.put("Total solde engage non decaissee", solEngNonDecService.somme());
-        total.put("Total dette extérieur", servPreDetteExtService.somme());
-        total.put("Total dette interieur structurer", servPreDetteIntStrucService.somme());
-        total.put("Total dette interieur non structurer", servPreDetteIntNoStrucService.somme());
+        total.put("TotalSEND", solEngNonDecService.somme());
+        total.put("TotalDetteEextérieur", servPreDetteExtService.somme());
+        total.put("TotalSPDIS", servPreDetteIntStrucService.somme());
+        total.put("TotalSPDINS", servPreDetteIntNoStrucService.somme());
         return total;
     }
 
     public Map<String, Object> AllDate(){
-        allObjectDate.put("Date SEND", solEngNonDecService.showDate());
-        allObjectDate.put("Date SPDE", servPreDetteExtService.showDate());
-        allObjectDate.put("Date SPDINS", servPreDetteIntNoStrucService.showDate());
-        allObjectDate.put("Date SPDIS", servPreDetteIntStrucService.showDate());
+        allObjectDate.put("DateSEND", solEngNonDecService.showDate());
+        allObjectDate.put("DateSPDE", servPreDetteExtService.showDate());
+        allObjectDate.put("DateSPDIN", servPreDetteIntNoStrucService.showDate());
+        allObjectDate.put("DateSPDIS", servPreDetteIntStrucService.showDate());
         return allObjectDate;
     }
     public Map<String, Object> AllDataObject(){
-        allDonneeObject.put("Dette Total", detteTotal());
-        allDonneeObject.put("Somme SEND, SPDE, SPDINS, SPDIS", Total());
-        allDonneeObject.put("Total dette interieur ", servPreDetteIntStrucService.somme()+servPreDetteIntNoStrucService.somme());
-        allDonneeObject.put("Date derinère importation", AllDate());
+        allDonneeObject.put("DetteTotal", detteTotal());
+        allDonneeObject.put("AllTotal", Total());
+        allDonneeObject.put("TotalDetteInterieur ", servPreDetteIntStrucService.somme()+servPreDetteIntNoStrucService.somme());
+        allDonneeObject.put("DateLastImport", AllDate());
         return allDonneeObject;
     }
     @GetMapping("/all-data")
